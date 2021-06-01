@@ -1,0 +1,24 @@
+<div class="my-6">
+<h4>Add A Todo</h4>
+<hr>
+<form [formGroup]="addTodoForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" formControlName="title" id="title" name="title" required="required" [(ngModel)]="title" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="desc" class="form-label">Description</label>
+      <input type="text" class="form-control" formControlName="desc" name="desc" required="required" id="desc"[(ngModel)]="desc">
+    </div>
+    
+    <button type="submit" [disabled]="!addTodoForm.valid" class="btn btn-sm btn-primary">Add Todo</button>
+  </form>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="data">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>Form Submitted Successfully.</p>
+    <hr>
+    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+  </div>
