@@ -10,7 +10,6 @@ import { Todo } from 'src/app/Todo';
 export class AddTodoComponent implements OnInit {
   title:string;
   desc:string;
-  data:boolean = false;
   @Output() todoAdd:EventEmitter<Todo> = new EventEmitter();
   addTodoForm = new FormGroup({
     title:new FormControl(),
@@ -29,10 +28,6 @@ export class AddTodoComponent implements OnInit {
       active:true
     }
     this.todoAdd.emit(todo);
-    this.data = true;
-    setTimeout(() => {
-      this.data = false;
-    }, 6000);
     this.addTodoForm.reset(); //to reset the form field
   }
 }

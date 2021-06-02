@@ -5,20 +5,31 @@
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
       <input type="text" class="form-control" formControlName="title" id="title" name="title" required="required" [(ngModel)]="title" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <div id="emailHelp" class="form-text">We'll never share your details with anyone else.</div>
     </div>
     <div class="mb-3">
       <label for="desc" class="form-label">Description</label>
       <input type="text" class="form-control" formControlName="desc" name="desc" required="required" id="desc"[(ngModel)]="desc">
     </div>
     
-    <button type="submit" [disabled]="!addTodoForm.valid" class="btn btn-sm btn-primary">Add Todo</button>
+    <button type="submit" [disabled]="!addTodoForm.valid" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Todo</button>
   </form>
   </div>
 
-  <div class="alert alert-success" role="alert" *ngIf="data">
-    <h4 class="alert-heading">Well done!</h4>
-    <p>Form Submitted Successfully.</p>
-    <hr>
-    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">To Do</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        To-do added Successfully.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
+</div>
